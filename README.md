@@ -1,3 +1,6 @@
+<center>
+    <img src="https://github.com/Poekes/SweetKeys/blob/main/static/bouquet-bunga.png?raw=true" />
+</center>
 <h1 align="center">SweetKeys</h1>
 
 Just frontend using svelte-kit
