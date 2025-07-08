@@ -1,0 +1,66 @@
+[
+    {
+        "slug": "bouquet-bunga",
+        "name": "bouquet bunga",
+        "price": 40000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    },
+    {
+        "slug": "bouquet-bunga-blue",
+        "name": "bouquet bunga blue",
+        "price": 1220000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    },
+    {
+        "slug": "bouquet-bunga-red",
+        "name": "bouquet bunga red",
+        "price": 1220000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    },
+    {
+        "slug": "bouquet-bunga-green",
+        "name": "bouquet bunga green",
+        "price": 1220000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    },
+    {
+        "slug": "bouquet-bunga-pink",
+        "name": "bouquet bunga pink",
+        "price": 1220000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    },
+    {
+        "slug": "bouquet-bunga-test",
+        "name": "bouquet bunga test",
+        "price": 1220000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    },
+    {
+        "slug": "bouquet-bunga-test-dua",
+        "name": "bouquet bunga test-dua",
+        "price": 1220000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    },
+    {
+        "slug": "bouquet-bunga-mawar",
+        "name": "bouquet bunga mawar",
+        "price": 20000,
+        "type": "bouquet",
+        "img": "bouquet-bunga.png",
+        "stok": 1
+    }
+]
