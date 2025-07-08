@@ -7,7 +7,7 @@
 <div
     class="  rounded-full border md:p-6 text-white border-white flex flex-col h-auto items-center {className}
                     bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg-[size:10px_10px]"
-    transition:fly={{ y: -20, duration: 1400 }}
+    in:fly={{ y: -20, duration: 1400 }}
 >
     <img
         src={`${base}/${img}`}

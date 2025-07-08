@@ -24,7 +24,7 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
 >
     <img
         src="/{produk.img}"
-        transition:fly={{ y: -20, duration: 1400 }}
+        in:fly={{ y: -20, duration: 1400 }}
         class="h-full object-cover"
         alt="Gambar {produk.name}"
     />
@@ -52,19 +52,16 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
                 Deskripsi Produk
             </h2>
             <p class="text-white px-1 text-shadow-2xs mb-4">
-                <!-- {produk?.description || "Tidak ada deskripsi."} -->
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-                nostrum aperiam nesciunt officia eaque, ipsam aliquam nobis sequi!
-                Perferendis, magni?
+                {produk?.description || "---"}
             </p>
-            <ul class="text-gray-300 space-y-1 py-2">
+            <ul class="text-gray-100 space-y-1 py-2">
                 <li>
                     <span class="font-medium text-white">Kategori:</span>
-                    {produk?.category || "-"}
+                    {produk?.type || "-"}
                 </li>
                 <li>
                     <span class="font-medium text-white">Stok:</span>
-                    {produk?.stock ?? "-"}
+                    {produk?.stok ?? "-"}
                 </li>
             </ul>
             <div class="border-b border-white mt-4">

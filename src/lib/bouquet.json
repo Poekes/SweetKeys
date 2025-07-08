@@ -1,11 +1,12 @@
 [
     {
-        "slug": "bouquet-bunga",
-        "name": "bouquet bunga",
+        "slug": "bouquet-flowers",
+        "name": "bouquet flowers",
         "price": 40000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     },
     {
         "slug": "bouquet-bunga-blue",
@@ -13,7 +14,8 @@
         "price": 1220000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     },
     {
         "slug": "bouquet-bunga-red",
@@ -21,7 +23,8 @@
         "price": 1220000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     },
     {
         "slug": "bouquet-bunga-green",
@@ -29,7 +32,8 @@
         "price": 1220000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     },
     {
         "slug": "bouquet-bunga-pink",
@@ -37,7 +41,8 @@
         "price": 1220000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     },
     {
         "slug": "bouquet-bunga-test",
@@ -45,7 +50,8 @@
         "price": 1220000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     },
     {
         "slug": "bouquet-bunga-test-dua",
@@ -53,7 +59,8 @@
         "price": 1220000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     },
     {
         "slug": "bouquet-bunga-mawar",
@@ -61,6 +68,7 @@
         "price": 20000,
         "type": "bouquet",
         "img": "bouquet-bunga.png",
-        "stok": 1
+        "stok": 1,
+        "description": "Bouquet flowers/bunga dengan berbagai pilihan warna dan jenis bunga. Cocok untuk hadiah spesial atau acara tertentu."
     }
 ]
