@@ -1,6 +1,7 @@
 <script>
     import { replaceState } from "$app/navigation";
     import { assets, base } from "$app/paths";
+    import { page } from "$app/state";
     import CardRounded from "$lib/components/CardRounded.svelte";
     import H1 from "$lib/components/H1.svelte";
     import P from "$lib/components/P.svelte";
@@ -56,21 +57,37 @@
 </script>
 
 <svelte:head>
-    <title
-        >Beli bouquet murah terdekat paguyangan, bumiayu, kranggan, banyumas
-    </title>
-
-    <meta name="robots" content="index, follow" />
+    <title>Toko Bouquet di paguyangan murah, mulai harga 10rb an</title>
     <meta
         name="description"
-        content="berbagai Bouquet / buket murah mulai dari 25rb, khusus area paguyangan dan sekitar nya brebes jawa tengah, dan lucu"
+        content="berbagai Bouquet / buket dan juga barang barang lucu murah mulai dari 10rb, khusus area paguyangan dan sekitar nya"
     />
-
-    <meta property="og:title" content="Beranda | Website Kamu" />
+    <meta
+        name="keywords"
+        content="Bouquet bunga, Bouquet flowers, bouquet lucu murah, penjual bouquet terdekat, toko bouquet paguyangan, toko bouquet, toko bunga, penjual bunga, toko buket bunga, toko buket murah, toko buket terdekat paguyangan, toko buket patuguran, toko buket bumiayu, toko buket kranggan, toko buket ajibarang"
+    />
+    <meta name="author" content="Sweetkeys" />
+    <link rel="canonical" href={page.url.href} />
+    <meta name="robots" content="index, follow" />
+    <meta
+        property="og:title"
+        content="Toko Bouquet dan segala bunga lucu murah mulai dari 10rb an aja"
+    />
     <meta
         property="og:description"
-        content="Deskripsi singkat untuk sosial media"
+        content="SweetKeys Toko bouquet dan bunga asli dan lain nya, yang ada di paguyangan"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={page.url.href} />
+    <meta property="og:image" content="{page.url.origin}/bouquet-bunga.png" />
+    <meta property="og:image:alt" content="Bouquet Flowers" />
+    <meta property="og:site_name" content="SweetKeys" />
+
+    <link rel="icon" href="{page.url.origin}/favicon.png" sizes="any" />
+    <link rel="icon" href="{page.url.origin}/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="{page.url.origin}/favicon.png" />
+
+    <meta name="theme-color" content="#FFFFFF" />
 </svelte:head>
 <main class="font-sans m-auto w-full md:max-w-7xl z-20">
     <section
