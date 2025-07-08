@@ -1,5 +1,5 @@
 <center>
-    <img src="https://github.com/Poekes/SweetKeys/blob/main/static/bouquet-bunga.png?raw=true" />
+    <img src="https://github.com/Poekes/SweetKeys/blob/main/static/bouquet-bunga.png?raw=true" height="500px"/>
 </center>
 <h1 align="center">SweetKeys</h1>
 
