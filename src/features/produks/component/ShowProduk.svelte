@@ -2,6 +2,9 @@
     import Button from "$lib/components/Button.svelte";
     import formatRupiah from "$lib/helper/formatRupiah";
     import { fly, slide } from "svelte/transition";
+    import CardPesan from "./CardPesan.svelte";
+    import P from "$lib/components/P.svelte";
+    import { currentUrl, previousUrl } from "$lib/stores/navigation";
 
     const { produk } = $props();
 
@@ -22,9 +25,20 @@
     class="w-full h-72 border-b z-20 relative border-white md:h-96 flex items-center justify-center
 bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg-[size:10px_10px]"
 >
+    {#if $previousUrl}
+        <Button
+            href={$previousUrl}
+            className="!px-2 !pr-4 bg-gradient-to-bl to-blue-400 from-cyan-400 !py-2 absolute left-2 top-2 flex justify-start"
+        >
+            <div
+                class="w-3 h-3 border-b-2 border-white border-r-2 rotate-135 before:content-[''] before:absolute before:top-0 before:right-0 before:w-[19px] before:h-[2px] before:bg-white before:rotate-45"
+            ></div>
+        </Button>
+    {/if}
+
     <img
         src="/{produk.img}"
-        transition:fly={{ y: -20, duration: 1400 }}
+        in:fly={{ y: -20, duration: 1400 }}
         class="h-full object-cover"
         alt="Gambar {produk.name}"
     />
@@ -45,28 +59,35 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
     </section>
 
     <section class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <div>
+        <div class="z-10">
             <h2
-                class="text-xl border-b border-white font-semibold text-white mb-2"
+                class="text-2xl border-b border-white font-semibold drop-shadow-lg text-white mb-2"
             >
                 Deskripsi Produk
             </h2>
             <p class="text-white px-1 text-shadow-2xs mb-4">
-                <!-- {produk?.description || "Tidak ada deskripsi."} -->
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-                nostrum aperiam nesciunt officia eaque, ipsam aliquam nobis sequi!
-                Perferendis, magni?
+                {produk?.description || "---"}
             </p>
-            <ul class="text-gray-300 space-y-1 py-2">
+            <ul class="text-gray-100 space-y-1 py-2">
                 <li>
                     <span class="font-medium text-white">Kategori:</span>
-                    {produk?.category || "-"}
+                    {produk?.type || "-"}
                 </li>
                 <li>
                     <span class="font-medium text-white">Stok:</span>
-                    {produk?.stock ?? "-"}
+                    {produk?.stok ?? "-"}
                 </li>
             </ul>
+
+            <h3
+                class="text-2xl border-b border-white font-semibold drop-shadow-lg text-white mt-4 mb-2"
+            >
+                Catatan
+            </h3>
+            <p class="text-white px-1 text-shadow-2xs mb-4">
+                Bisa di Custom loh, Apa bila ada tambahan, harga akan naik
+                sesuai dengan tambahan nya,
+            </p>
             <div class="border-b border-white mt-4">
                 <Button
                     on:click={handleHowOrder}
@@ -80,41 +101,43 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
                 </Button>
             </div>
             {#if howOrder}
-                <p
+                <div
                     transition:slide={{ duration: 200 }}
-                    class="text-white px-1 text-shadow-2xs mb-4"
+                    class="text-white px-1 space-y-3 text-shadow-2xs mb-4"
                 >
                     <!-- {produk?.description || "Tidak ada deskripsi."} -->
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
-                    ratione dicta recusandae totam facilis id cumque fugit, velit
-                    minus exercitationem, libero laboriosam aut quia eum doloremque
-                    impedit a facere debitis et! Eligendi dolor amet ea ullam laborum
-                    illo suscipit, quo repellendus accusantium incidunt, quaerat
-                    cum consequatur placeat, voluptate illum dolore voluptas fuga
-                    beatae sunt facere! Facere atque dolor velit blanditiis odio
-                    ducimus quia alias quaerat repudiandae impedit asperiores nisi,
-                    ratione voluptate nihil repellendus fugiat quam laborum excepturi?
-                    Aut voluptas quas, pariatur enim eum rem animi ipsa exercitationem,
-                    corporis ipsam nam magnam? Ipsam harum rem laborum asperiores
-                    voluptas ratione unde maiores.
-                </p>
+                    <h3 class="text-2xl mt-2">Pemesanan</h3>
+                    <p>
+                        Silahkan click "Pesan Sekarang" yang ada di bawah ini,
+                        untuk mengarahkan ke WhatsApp kami kaa, Otamatis produk
+                        ini akan di tampilkan dibagian chat
+                    </p>
+                    <p>
+                        Bisa juga menggunakan instagram kami ka, jangan lupa
+                        kirim kan link atau foto produk nya ya ka, jika click
+                        pesan melalui instagram akan tercopy link produk nya dan
+                        akan mengarahkan ke instagram langsung, jangan lupa di
+                        kirim kan ya ka
+                    </p>
+                    <h3 class="text-2xl mt-6">Pengiriman</h3>
+                    <p>
+                        Area Paguyangan, Bumiayu, kranggan, pakuncen, dan
+                        sekitar nya, kami bisa datang kerumah / COD, apa bila
+                        masih berdekatan dengan wilayah ini kami masih bisa
+                        untuk datang,
+                    </p>
+                    <p>
+                        dan apa bila di luar kota kami kirim kan lewat ekpedisi
+                        tetapi ada biaya tambahan untuk packing dan ongkir nya
+                    </p>
+                </div>
             {/if}
         </div>
-        <div class="flex flex-col gap-4">
-            <div
-                class="bg-gradient-to-br to-blue-500 from-cyan-400 rounded-lg p-6 shadow-md flex flex-col gap-2"
-            >
-                <span class="text-gray-50">Harga</span>
-                <span class="text-3xl font-bold text-white"
-                    >{formatRupiah(produk?.price)}</span
-                >
-                <Button
-                    className="bg-emerald-400 border-b-4 border-r-4 hover:bg-green-700 shadow-md py-2 text-white w-full mt-2"
-                    >Pesan Sekarang</Button
-                >
-            </div>
+        <div class="flex flex-col gap-4 sticky top-10">
+            <CardPesan price={formatRupiah(produk?.price)} />
         </div>
     </section>
+    <div class="w-full h-[2000px]"></div>
 </main>
 
 <style>

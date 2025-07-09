@@ -3,7 +3,7 @@
     import { page } from "$app/state";
 </script>
 
-<div class="container">
+<div class="container relative">
     <div class="card">
         <div class="icon-bg">
             <span class="icon">😵‍💫</span>
