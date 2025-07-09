@@ -24,7 +24,7 @@
 
     <a
         href="produks/{slug}"
-        class=" font-normal border-b-2 border-r-2 border-black/30 mb-4 px-4 cursor-pointer bg-[#009dff] py-0.5 md:py-1 rounded text-sm md:text-lg"
+        class=" font-normal border-b-2 border-r-2 border-black/30 mb-4 px-4 cursor-pointer bg-gradient-to-bl to-blue-400 from-cyan-400 py-0.5 md:py-1 rounded text-sm md:text-lg"
     >
         Beli
     </a>

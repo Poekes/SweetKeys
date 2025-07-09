@@ -7,6 +7,7 @@
     import P from "$lib/components/P.svelte";
     import formatRupiah from "$lib/helper/formatRupiah";
     import intersect from "$lib/helper/intersect";
+    import { currentUrl, previousUrl } from "$lib/stores/navigation";
     import { onMount } from "svelte";
     import { fade, fly } from "svelte/transition";
     let targetIntersect;
@@ -53,6 +54,8 @@
         if (targetIntersect) {
             intersect(targetIntersect, { threshold: 1.0 }, whenIntersectView);
         }
+
+        return () => {};
     });
 </script>
 

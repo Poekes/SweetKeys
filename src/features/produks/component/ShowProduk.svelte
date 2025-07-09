@@ -3,6 +3,8 @@
     import formatRupiah from "$lib/helper/formatRupiah";
     import { fly, slide } from "svelte/transition";
     import CardPesan from "./CardPesan.svelte";
+    import P from "$lib/components/P.svelte";
+    import { currentUrl, previousUrl } from "$lib/stores/navigation";
 
     const { produk } = $props();
 
@@ -23,6 +25,17 @@
     class="w-full h-72 border-b z-20 relative border-white md:h-96 flex items-center justify-center
 bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg-[size:10px_10px]"
 >
+    {#if $previousUrl}
+        <Button
+            href={$previousUrl}
+            className="!px-2 !pr-4 bg-gradient-to-bl to-blue-400 from-cyan-400 !py-2 absolute left-2 top-2 flex justify-start"
+        >
+            <div
+                class="w-3 h-3 border-b-2 border-white border-r-2 rotate-135 before:content-[''] before:absolute before:top-0 before:right-0 before:w-[19px] before:h-[2px] before:bg-white before:rotate-45"
+            ></div>
+        </Button>
+    {/if}
+
     <img
         src="/{produk.img}"
         in:fly={{ y: -20, duration: 1400 }}
@@ -46,9 +59,9 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
     </section>
 
     <section class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <div>
+        <div class="z-10">
             <h2
-                class="text-xl border-b border-white font-semibold text-white mb-2"
+                class="text-2xl border-b border-white font-semibold drop-shadow-lg text-white mb-2"
             >
                 Deskripsi Produk
             </h2>
@@ -65,6 +78,16 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
                     {produk?.stok ?? "-"}
                 </li>
             </ul>
+
+            <h3
+                class="text-2xl border-b border-white font-semibold drop-shadow-lg text-white mt-4 mb-2"
+            >
+                Catatan
+            </h3>
+            <p class="text-white px-1 text-shadow-2xs mb-4">
+                Bisa di Custom loh, Apa bila ada tambahan, harga akan naik
+                sesuai dengan tambahan nya,
+            </p>
             <div class="border-b border-white mt-4">
                 <Button
                     on:click={handleHowOrder}
@@ -96,13 +119,25 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
                         akan mengarahkan ke instagram langsung, jangan lupa di
                         kirim kan ya ka
                     </p>
+                    <h3 class="text-2xl mt-6">Pengiriman</h3>
+                    <p>
+                        Area Paguyangan, Bumiayu, kranggan, pakuncen, dan
+                        sekitar nya, kami bisa datang kerumah / COD, apa bila
+                        masih berdekatan dengan wilayah ini kami masih bisa
+                        untuk datang,
+                    </p>
+                    <p>
+                        dan apa bila di luar kota kami kirim kan lewat ekpedisi
+                        tetapi ada biaya tambahan untuk packing dan ongkir nya
+                    </p>
                 </div>
             {/if}
         </div>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 sticky top-10">
             <CardPesan price={formatRupiah(produk?.price)} />
         </div>
     </section>
+    <div class="w-full h-[2000px]"></div>
 </main>
 
 <style>
