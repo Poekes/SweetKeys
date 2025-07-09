@@ -2,6 +2,7 @@
     import Button from "$lib/components/Button.svelte";
     import formatRupiah from "$lib/helper/formatRupiah";
     import { fly, slide } from "svelte/transition";
+    import CardPesan from "./CardPesan.svelte";
 
     const { produk } = $props();
 
@@ -77,39 +78,29 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
                 </Button>
             </div>
             {#if howOrder}
-                <p
+                <div
                     transition:slide={{ duration: 200 }}
-                    class="text-white px-1 text-shadow-2xs mb-4"
+                    class="text-white px-1 space-y-3 text-shadow-2xs mb-4"
                 >
                     <!-- {produk?.description || "Tidak ada deskripsi."} -->
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
-                    ratione dicta recusandae totam facilis id cumque fugit, velit
-                    minus exercitationem, libero laboriosam aut quia eum doloremque
-                    impedit a facere debitis et! Eligendi dolor amet ea ullam laborum
-                    illo suscipit, quo repellendus accusantium incidunt, quaerat
-                    cum consequatur placeat, voluptate illum dolore voluptas fuga
-                    beatae sunt facere! Facere atque dolor velit blanditiis odio
-                    ducimus quia alias quaerat repudiandae impedit asperiores nisi,
-                    ratione voluptate nihil repellendus fugiat quam laborum excepturi?
-                    Aut voluptas quas, pariatur enim eum rem animi ipsa exercitationem,
-                    corporis ipsam nam magnam? Ipsam harum rem laborum asperiores
-                    voluptas ratione unde maiores.
-                </p>
+                    <h3 class="text-2xl mt-2">Pemesanan</h3>
+                    <p>
+                        Silahkan click "Pesan Sekarang" yang ada di bawah ini,
+                        untuk mengarahkan ke WhatsApp kami kaa, Otamatis produk
+                        ini akan di tampilkan dibagian chat
+                    </p>
+                    <p>
+                        Bisa juga menggunakan instagram kami ka, jangan lupa
+                        kirim kan link atau foto produk nya ya ka, jika click
+                        pesan melalui instagram akan tercopy link produk nya dan
+                        akan mengarahkan ke instagram langsung, jangan lupa di
+                        kirim kan ya ka
+                    </p>
+                </div>
             {/if}
         </div>
         <div class="flex flex-col gap-4">
-            <div
-                class="bg-gradient-to-br to-blue-500 from-cyan-400 rounded-lg p-6 shadow-md flex flex-col gap-2"
-            >
-                <span class="text-gray-50">Harga</span>
-                <span class="text-3xl font-bold text-white"
-                    >{formatRupiah(produk?.price)}</span
-                >
-                <Button
-                    className="bg-emerald-400 border-b-4 border-r-4 hover:bg-green-700 shadow-md py-2 text-white w-full mt-2"
-                    >Pesan Sekarang</Button
-                >
-            </div>
+            <CardPesan price={formatRupiah(produk?.price)} />
         </div>
     </section>
 </main>
