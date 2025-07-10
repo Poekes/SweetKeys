@@ -7,12 +7,16 @@
     import P from "$lib/components/P.svelte";
     import formatRupiah from "$lib/helper/formatRupiah";
     import intersect from "$lib/helper/intersect";
+    import BouquetModel from "$lib/models/BouquetModel";
     import { currentUrl, previousUrl } from "$lib/stores/navigation";
     import { onMount } from "svelte";
     import { fade, fly } from "svelte/transition";
     let targetIntersect;
     let produkAll = $state([]);
     let produks = $state([]);
+
+    const bouquet = new BouquetModel();
+
     onMount(() => {
         const lastProduk = sessionStorage.getItem("produkLength");
         const windowScrollTop = sessionStorage.getItem(
@@ -20,22 +24,16 @@
         );
         // This will ensure the text is visible after the component mounts
 
-        fetch(`${window.location.origin}/produks`, {
-            method: "POST",
-        })
-            .then((response) => response.json())
-            .then((res) => {
-                produkAll.push(...res);
-                produks.push(...res.slice(0, lastProduk || 4));
-                produkAll.splice(0, lastProduk || 4);
+        produkAll.push(...bouquet.getBouquets());
+        produks.push(...bouquet.getBouquets().slice(0, lastProduk || 4));
+        produkAll.splice(0, lastProduk || 4);
 
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: windowScrollTop || 0,
-                        behavior: "smooth",
-                    });
-                }, 50);
+        setTimeout(() => {
+            window.scrollTo({
+                top: windowScrollTop || 0,
+                behavior: "smooth",
             });
+        }, 50);
 
         window.addEventListener("scroll", () => {
             sessionStorage.setItem(window.location.pathname, window.scrollY);
