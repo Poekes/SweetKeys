@@ -4,6 +4,7 @@
     import { page } from "$app/state";
     import CardRounded from "$lib/components/CardRounded.svelte";
     import H1 from "$lib/components/H1.svelte";
+    import Navigasi from "$lib/components/Navigasi.svelte";
     import P from "$lib/components/P.svelte";
     import formatRupiah from "$lib/helper/formatRupiah";
     import intersect from "$lib/helper/intersect";
@@ -91,8 +92,9 @@
     <meta name="theme-color" content="#FFFFFF" />
 </svelte:head>
 <main class="font-sans m-auto w-full md:max-w-7xl z-20">
+    <Navigasi />
     <section
-        class="py-12 px-4 grid md:grid-cols-4 md:gap-2 grid-cols-1 z-20 relative"
+        class="py-12 pt-4 px-4 grid md:grid-cols-4 md:gap-2 grid-cols-1 z-20 relative"
     >
         <!-- Teks Section -->
         <div class="col-span-1 md:max-w-96">
