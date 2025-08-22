@@ -4,15 +4,20 @@
     import { page } from "$app/state";
     import CardRounded from "$lib/components/CardRounded.svelte";
     import H1 from "$lib/components/H1.svelte";
+    import Navigasi from "$lib/components/Navigasi.svelte";
     import P from "$lib/components/P.svelte";
     import formatRupiah from "$lib/helper/formatRupiah";
     import intersect from "$lib/helper/intersect";
+    import BouquetModel from "$lib/models/BouquetModel";
     import { currentUrl, previousUrl } from "$lib/stores/navigation";
     import { onMount } from "svelte";
     import { fade, fly } from "svelte/transition";
     let targetIntersect;
     let produkAll = $state([]);
     let produks = $state([]);
+
+    const bouquet = new BouquetModel();
+
     onMount(() => {
         const lastProduk = sessionStorage.getItem("produkLength");
         const windowScrollTop = sessionStorage.getItem(
@@ -20,22 +25,16 @@
         );
         // This will ensure the text is visible after the component mounts
 
-        fetch(`${window.location.origin}/produks`, {
-            method: "POST",
-        })
-            .then((response) => response.json())
-            .then((res) => {
-                produkAll.push(...res);
-                produks.push(...res.slice(0, lastProduk || 4));
-                produkAll.splice(0, lastProduk || 4);
+        produkAll.push(...bouquet.getBouquets());
+        produks.push(...bouquet.getBouquets().slice(0, lastProduk || 4));
+        produkAll.splice(0, lastProduk || 4);
 
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: windowScrollTop || 0,
-                        behavior: "smooth",
-                    });
-                }, 50);
+        setTimeout(() => {
+            window.scrollTo({
+                top: windowScrollTop || 0,
+                behavior: "smooth",
             });
+        }, 50);
 
         window.addEventListener("scroll", () => {
             sessionStorage.setItem(window.location.pathname, window.scrollY);
@@ -93,8 +92,9 @@
     <meta name="theme-color" content="#FFFFFF" />
 </svelte:head>
 <main class="font-sans m-auto w-full md:max-w-7xl z-20">
+    <Navigasi />
     <section
-        class="py-12 px-4 grid md:grid-cols-4 md:gap-2 grid-cols-1 z-20 relative"
+        class="py-12 pt-4 px-4 grid md:grid-cols-4 md:gap-2 grid-cols-1 z-20 relative"
     >
         <!-- Teks Section -->
         <div class="col-span-1 md:max-w-96">

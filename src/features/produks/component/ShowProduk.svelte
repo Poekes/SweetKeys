@@ -27,7 +27,9 @@ bg-[image:radial-gradient(var(--color-gray-300)_1px,_transparent_0)] bg-fixed bg
 >
     {#if $previousUrl}
         <Button
-            href={$previousUrl}
+            on:click={() => {
+                history.back();
+            }}
             className="!px-2 !pr-4 bg-gradient-to-bl to-blue-400 from-cyan-400 !py-2 absolute left-2 top-2 flex justify-start"
         >
             <div
