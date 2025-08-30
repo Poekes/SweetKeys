@@ -33,23 +33,27 @@
                 name="search"
                 placeholder="Cari sesuatu..."
                 bind:this={searchInput}
-                autofocus
                 on:change={handlerSearch}
                 class="border-b-2 bg-black/5 text-white border-gray-50 rounded-full py-3 px-5 w-full focus:outline-none focus:ring-2 focus:ring-blue-300 shadow transition"
             />
-            <svg
+            <button
+                class=" cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2"
                 on:click={handlerSearch}
-                class="absolute cursor-pointer right-4 top-1/2 transform -translate-y-1/2 text-white"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+                aria-label="search button"
             >
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
+                <svg
+                    class="text-white"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
         </div>
 
         <div class="mt-6 w-full max-w-md">
