@@ -18,9 +18,9 @@
 
     const handlerSearch = ({ target }) => {
         const valueSearch = searchInput.value;
-        if (!valueSearch) return;
+        if (!valueSearch.trim()) return;
 
-        goto(`/search/${valueSearch}`, {});
+        goto(`/search/${encodeURIComponent(valueSearch)}`, {});
         navi.set(null);
     };
 </script>
