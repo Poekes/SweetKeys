@@ -16,6 +16,7 @@ export default class BouquetModel {
         return this.bouquet.find(item => item.slug === slug)
     }
     getSearch(searchQuery) {
+        if (!searchQuery) return this.bouquet;
         const keywords = searchQuery.toLowerCase().split(" ").filter(Boolean);
 
         const resultsWithScore = this.bouquet.map(product => {
