@@ -30,26 +30,43 @@
     let scrollY = 0;
     let lastScrollY = 0;
     let navigasi;
+    let scrollPosition = 0;
 
     $effect(() => {
-        // $buttonNav != null
-        //     ? (document.body.style.overflow = "hidden")
-        //     : (document.body.style.overflow = "auto");
+        const windowScrollTop = sessionStorage.getItem(
+            window.location.pathname,
+        );
+
+        if ($buttonNav != null) {
+            // Simpan posisi scroll sebelum mengunci body
+            scrollPosition = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = "100%";
+        } else {
+            // Kembalikan body ke posisi normal dan scroll ke posisi yang disimpan
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.width = "";
+            setTimeout(() => {
+                window.scrollTo(0, scrollPosition);
+            }, 0);
+        }
     });
 
     onMount(() => {
         // when user click "Back" or "Forward"
         window.addEventListener("popstate", (event) => {
-            if (event.state && event.state.nav) {
-                buttonNav.set(event.state.nav);
+            // console.log(event.state["sveltekit:states"].nav);
+            if (event.state && event.state["sveltekit:states"]?.nav) {
+                buttonNav.set(event.state["sveltekit:states"].nav);
             } else {
                 buttonNav.set(null);
             }
         });
-
         // Deteksi jika user langsung reload halaman dan state masih ada
-        if (history.state?.nav) {
-            buttonNav.set(history.state.nav);
+        if (history.state["sveltekit:states"]?.nav) {
+            buttonNav.set(history.state["sveltekit:states"]?.nav);
         }
 
         window.addEventListener("scroll", () => {
