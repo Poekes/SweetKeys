@@ -140,7 +140,7 @@
 {#if $buttonNav}
     <div
         transition:fade
-        class="fixed top-0 bottom-0 z-[2000] left-0 right-0 bg-black/5 backdrop-blur-[4px]"
+        class="fixed top-0 bottom-0 z-[2000] left-0 right-0 bg-black/5 backdrop-blur-[4px] overflow-y-auto"
     >
         <Button
             on:click={() => history.back()}
