@@ -19,3 +19,4 @@ Online Shop website, u can buy bouquet flowers
 ## Goals
  - SEO 
  - Learn Svelte 
+ - jago koding
